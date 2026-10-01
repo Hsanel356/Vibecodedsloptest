@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Code Drop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell" aria-live="polite">
+      <section id="entry-view" class="view is-active">
+        <label class="sr-only" for="entry-code">4 digit code</label>
+        <input
+          id="entry-code"
+          class="code-input"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          maxlength="4"
+          pattern="[0-9]{4}"
+          placeholder="0000"
+          autofocus
+        />
+      </section>
+
+      <section id="send-view" class="view">
+        <form id="message-form" class="stack">
+          <label class="sr-only" for="message">Message</label>
+          <textarea
+            id="message"
+            class="message-box"
+            maxlength="600"
+            placeholder="message"
+            required
+          ></textarea>
+
+          <label class="sr-only" for="recipient-code">Receiver code</label>
+          <input
+            id="recipient-code"
+            class="code-input code-input--small"
+            inputmode="numeric"
+            maxlength="4"
+            pattern="[0-9]{4}"
+            placeholder="0000"
+            required
+          />
+
+          <button class="action-button" type="submit">save</button>
+          <p id="send-status" class="status" role="status"></p>
+        </form>
+      </section>
+
+      <section id="receive-view" class="view">
+        <article class="message-card">
+          <p id="received-message" class="received-message"></p>
+        </article>
+        <button id="again-button" class="text-button" type="button">again</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
